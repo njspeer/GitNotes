@@ -115,6 +115,10 @@ Run git difftool --tool-help to see what is available on your system.
 → git add .
 → git commit # then add comments in editor
 → git commit -m "add comments in one line"
+
+Or, to skip the 'git add .' part
+→ git commit -a             # (will stage everything that is already being tracked)
+→ git commit -a -m 'update' # will also add the comments
 """
 
 
