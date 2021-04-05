@@ -155,7 +155,67 @@ Is equivalent to:
 """
 git log
 git log -p (or git log --patch)   # shows the differences
+
+git log --pretty=format           # make output pretty
+
+%H      Commit hash
+%h      Abbreviated commit hash
+%T      Tree hash
+%t      Abbreviated tree hash
+%P      Parent hashes
+%p      Abbreviated parent hashes
+%an     Author name
+%ae     Author email
+%ad     Author date (format respects the --date=option)
+%ar     Author date, relative
+%cn     Committer name
+%ce     Committer email
+%cd     Committer date
+%cr     Committer date, relative
+%s      Subject
+
+Examples
+git log --pretty=format:"%h %s" --graph
+
+Common optons:
+
+Option	Description
+-p                Show the patch introduced with each commit.
+--stat            Show statistics for files modified in each commit.
+--shortstat       Display only the changed/insertions/deletions line from the --stat command.
+--name-only       Show the list of files modified after the commit information.
+--name-status     Show the list of files affected with added/modified/deleted information as well.
+--abbrev-commit   Show only the first few characters of the SHA-1 checksum instead of all 40.
+--relative-date   Display the date in a relative format (for example, “2 weeks ago”) instead of using the full date format.
+--graph           Display an ASCII graph of the branch and merge history beside the log output.
+--pretty          Show commits in an alternate format. Option values include oneline, short, full, fuller, and format (where you specify your own format).
+--oneline         Shorthand for --pretty=oneline --abbrev-commit used together.
+
+Limiting options:
+git log --since   # 
+git log --until
+git log --author
+git log --grep
+git log -S        # shows only commits that changed the number of occurrences of string S
+
+Example
+git log --since=2.weeks
+git log -- path/to/file   # shows only changes to file
 """
+
+# Update a commit message
+"""
+→ git commit -m 'Initial commit'
+→ git add forgotten_file
+→ git commit --amend
+"""
+
+# Unstaging a Staged File
+"""
+git reset HEAD File
+"""
+
+# Unmodifying a Modified File
 
 
 
