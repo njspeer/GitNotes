@@ -122,6 +122,40 @@ Or, to skip the 'git add .' part
 """
 
 # Removing Files
+"""
+→ git rm filename
+→ git add .
+→ git commit -m 'comment'
+→ git push
+# the above removes filename from the local repository, staging and GitHub
+
+# I believe the above is equivalent to the following:
+→ rm file
+→ git add .
+→ git commit -m 'removed file'
+→ git push
+
+Note:
+According to the internet, there are some safety checks that take place when you use git rm
+Specifically, git will block removal if there are discrepancies between the HEAD version and the staged index
+"""
+
+# Moving/Renaming Files
+"""
+→ git mv README.md README
+
+Is equivalent to:
+
+→ mv README.md README
+→ git rm README.md
+→ git add README
+"""
+
+# Viewing the Commit History
+"""
+git log
+git log -p (or git log --patch)   # shows the differences
+"""
 
 
 
