@@ -121,6 +121,9 @@ Or, to skip the 'git add .' part
 → git commit -a -m 'update' # will also add the comments
 """
 
+# Removing Files
+
+
 
 
 
