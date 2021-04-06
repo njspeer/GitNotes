@@ -216,8 +216,183 @@ git reset HEAD File
 """
 
 # Unmodifying a Modified File
+"""
+Make changes and then run git status to see how to restore each file that is different
+git restore <file>
+for example
+
+**Note that this is a dangerous command and should only be used as a last resort**
+"""
+
+# Showing Your Remotes
+"""
+git remote
+git remote -v
+"""
+
+# Adding Remote Repositories
+"""
+git remote add <shortname> <url>
+If you clone a repository, the command automatically adds that remote repository under the name “origin”.
+"""
+
+# Fetching from Your Remotes
+"""
+→ git fetch <remote>
+
+Pulls down all the data from that remote project that you don’t have yet. After you do this, 
+you should have references to all the branches from that remote, which you can merge in or inspect at any time.
+
+If you clone a repository, the command automatically adds that remote repository under the name “origin”. 
+So, git fetch origin fetches any new work that has been pushed to that server since you cloned (or last fetched from) it. 
+It’s important to note that the git fetch command only downloads the data to your local repository 
+— it doesn’t automatically merge it with any of your work or modify what you’re currently working on. 
+You have to merge it manually into your work when you’re ready.
+"""
+
+# Pulling from Your Remotes
+"""
+git pull [<options>] [<repository> [<refspec>...]]
+
+Fetch from and integrate with another repository or a local branch.
+
+Incorporates changes from a remote repository into the current branch. In its default mode, git pull is
+shorthand for git fetch followed by git merge FETCH_HEAD.
+
+<repository> should be the name of a remote repository as passed to git-fetch. 
+<refspec> can name an arbitrary remote ref (for example, the name of a tag) or even a collection of refs with corresponding
+remote-tracking branches (e.g., refs/heads/*:refs/remotes/origin/*), but usually it is the name of a branch
+in the remote repository.
+
+Default values for <repository> and <branch> are read from the "remote" and "merge" configuration for the
+current branch as set by git-branch(1) --track.
+
+see git pull --help for a nice explanation:
+"""
+
+# Pushing to Your Remotes
+"""
+git push <remote> <branch> (e.g., git push origin master)
+"""
+
+# inspect reomote
+""" 
+git remote show <remote> (e.g., git remote show origin)
+"""
+
+# Renaming and Removing Remotes
+"""
+git remote rename <oldremote> <newremote>
+git remote remove <remote>
+"""
+
+# Listing Your Tags
+"""
+git tag                 # list all tags
+git tag -l "v1.8.5*"    # list tags that match pattern
+"""
+
+# Creating Lightweight Tags
+"""
+# Lightweight tag: a pointer to a specific commit.
+git tag v1.4-lw
+"""
+
+# Creating Annotated Tags
+"""
+# to create an annotated tag, just use the -a flag
+git tag -a v1.4 -m "my version 1.4"
+"""
+
+# tagging older commits
+"""
+→ git log --pretty=oneline
+15027957951b64cf874c3557a0f3547bd83b3ff6 Merge branch 'experiment'
+a6b4c97498bd301d84096da251c98a07c7723e65 Create write support
+0d52aaab4479697da7686c15f77a3d64d9165190 One more thing
+6d52a271eda8725415634dd79daabbc4d9b6008e Merge branch 'experiment'
+0b7434d86859cc7b8c3d5e1dddfed66ff742fcbc Add commit function
+4682c3261057305bdd616e23b64b0857d832627b Add todo file
+166ae0c4d3f420721acbb115cc33848dfcc2121a Create write support
+9fceb02d0ae598e95dc970b74767f19372d61af8 Update rakefile
+964f16d36dfccde844893cac5b347e7b3d44abbc Commit the todo
+8a5cbc430f1a9c3d00faaeffd07798508422908a Update readme
+
+git tag -a v1.2 9fceb02
+Where, 9fceb02 is the first 7 characters of the commit hash (see example, above)
+"""
+
+# Sharing Tags
+"""
+By default, the git push command doesn’t transfer tags to remote servers. 
+You will have to explicitly push tags to a shared server after you have created them. 
+This process is just like sharing remote branches — you can run:
+git push origin <tagname>
+"""
+
+# Deleting Tags
+"""
+# Delete local tags
+git tag -d <tagname>
+
+# Delete remote tags
+git push origin --delete <tagname>
+"""
+
+# Checking out Tags
+"""
+If you want to view the versions of files a tag is pointing to, you can do a git checkout of that tag, 
+although this puts your repository in “detached HEAD” state, which has some ill side effects:
+→ git checkout <tag>
+
+In “detached HEAD” state, if you make changes and then create a commit, the tag will stay the same, 
+but your new commit won’t belong to any branch and will be unreachable, except by the exact commit hash. 
+Thus, if you need to make changes — say you’re fixing a bug on an older version, 
+for instance — you will generally want to create a branch:
+
+→ git checkout -b version2 v2.0.0
+Switched to a new branch 'version2'
+"""
+
+# Git Aliases
+"""
+→ git config --global alias.co checkout
+→ git config --global alias.br branch
+→ git config --global alias.ci commit
+→ git config --global alias.st status
+→ git config --global alias.unstage 'reset HEAD --'
+→ git config --global alias.last 'log -1 HEAD'
+→ git config --global alias.visual '!gitk'             # use ! to run external commands
+"""
+
+# Creating a New Branch
+"""
+→ git branch <newbranch>      # Creates a new pointer to the same commit you’re currently on.
+
+"""
+
+# Switching Branches
+"""
+→ git checkout <branch>            # Moves HEAD to point to branch.
+→ git switch <branch>              # equivalent to above
+
+→ git checkout -b <newbranchn>     # create a new branch and switch to it.
+→ git switch -c <newbranch>        # equivalent to above
+"""
+
+# Merge Branches
+"""
+git checkout master
+git merge <branch>
+"""
 
 
-
-
-
+# Working with Branches
+"""
+→ git branch                           # list of branches
+→ git branch -v                        # list of branches with last commit
+→ git branch --merged                  # list merged branches only
+→ git branch --no-merged               # list branches that have not been merged
+→ git branch --move <old> <new>        # change local branch name
+→ git push --set-upstream origin <new> # pushes new branch name to remote repository
+"""

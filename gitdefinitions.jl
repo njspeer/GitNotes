@@ -16,7 +16,8 @@ This happens when you checkout a specific commit, tag, or remote branch. Your re
 
 # origin
 """
-An alias for the remote repository from which the repository was cloned.
+If you clone a repository, the command automatically adds that remote repository under the name “origin”.
+See # Adding Remote Repositories in gitnotes.jl
 
 to view the URL type:
 → git remote -v
