@@ -363,6 +363,13 @@ Switched to a new branch 'version2'
 → git config --global alias.unstage 'reset HEAD --'
 → git config --global alias.last 'log -1 HEAD'
 → git config --global alias.visual '!gitk'             # use ! to run external commands
+
+# let's make an aliases to plot the git networks
+[alias]
+lg1 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
+lg = !"git lg1"
+
 """
 
 # Creating a New Branch
@@ -396,3 +403,4 @@ git merge <branch>
 → git branch --move <old> <new>        # change local branch name
 → git push --set-upstream origin <new> # pushes new branch name to remote repository
 """
+
