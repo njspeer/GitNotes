@@ -26,4 +26,5 @@ to view the URL type:
   # the following are equivalent:
   git push origin <branchname>
   gir push git@github.com:njspeer/GitNotes.git <branchname>
-"""
+""" 
+
