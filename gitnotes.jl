@@ -411,3 +411,34 @@ git merge <branch>
 → git ls-remote origin                    # lists brances and references hashes
 → git remote show origin                  # Manage the set of repositories ("remotes") whose branches you track.
 """
+
+# Fetch
+"""
+→ git fetch <remote> 
+# fetches any data from it that you don’t yet have
+"""
+
+# Pushing
+"""
+git push <remote> <branch>
+# Updates remote refs using local refs, while sending objects necessary to complete the given refs.
+  When the command line does not specify where to push with the <repository> argument, branch.*.remote
+  configuration for the current branch is consulted to determine where to push. If the configuration is
+  missing, it defaults to origin.
+
+→ git push 
+  [--all | --mirror | --tags] 
+  [--follow-tags] 
+  [--atomic] 
+  [-n | --dry-run] 
+  [--receive-pack=<git-receive-pack>]
+  [--repo=<repository>] 
+  [-f | --force] [-d | --delete] 
+  [--prune] [-v | --verbose]
+  [-u | --set-upstream] 
+  [-o <string> | --push-option=<string>]
+  [--[no-]signed|--signed=(true|false|if-asked)]
+  [--force-with-lease[=<refname>[:<expect>]] 
+  [--force-if-includes]]
+  [--no-verify] [<repository> [<refspec>...]]
+"""
