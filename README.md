@@ -11,10 +11,6 @@
 4. -> git remote add origin git@github.com:njspeer/Logger.jl.git
 5. -> git push -u -f origin master
 
-## How to set the SSH keys
-
-#### From a command-line terminal
-
-<!--to generate an rsa-key pair /home/nathan/.ssh/id_rsa is the default location -->
-0.  ssh-keygen
+## How to add a git submodule
+git submodule add <git@github.com:njspeer/xXx.git>
 
